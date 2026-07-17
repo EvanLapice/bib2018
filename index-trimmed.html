@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B.I.B | Believe In Better | Belleview, FL (Trimmed Preview)</title>
+  <meta name="description" content="B.I.B (Believe In Better) is a community basketball league in Belleview, Florida. More than basketball: fellowship, free youth training, and nonviolence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #002B5C;
+      --navy-deep: #001a3a;
+      --red:       #C8102E;
+      --red-dark:  #a50d26;
+      --white:     #ffffff;
+      --off:       #f5f6f8;
+      --ink:       #101820;
+      --gray:      #5b6570;
+      --line:      #e3e6ea;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, .btn, .nav-links a { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+
+    img, video { display: block; max-width: 100%; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+    /* ---------- NAV ---------- */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      height: 68px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+
+    .brand-mark {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--red);
+      background: var(--navy);
+    }
+
+    .brand-text { line-height: 1.15; }
+    .brand-text .b1 { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 17px; letter-spacing: 0.06em; color: var(--navy); text-transform: uppercase; }
+    .brand-text .b2 { font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; color: var(--red); text-transform: uppercase; }
+
+    .nav-links { display: flex; gap: 26px; list-style: none; }
+
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13.5px;
+      letter-spacing: 0.08em;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: color .15s, border-color .15s;
+    }
+
+    .nav-links a:hover { color: var(--red); border-color: var(--red); }
+
+    .nav-burger {
+      display: none;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .nav-burger span {
+      display: block;
+      width: 24px;
+      height: 3px;
+      background: var(--navy);
+      transition: transform .2s, opacity .2s;
+    }
+
+    header.nav-open .nav-burger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    header.nav-open .nav-burger span:nth-child(2) { opacity: 0; }
+    header.nav-open .nav-burger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+
+    .ig-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600; font-size: 13.5px; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none;
+      color: #fff;
+      background: var(--red);
+      border: 2px solid var(--red);
+      padding: 9px 18px;
+      transition: background .15s, border-color .15s;
+    }
+
+    .ig-btn:hover { background: var(--red-dark); border-color: var(--red-dark); }
+    .ig-btn svg { width: 17px; height: 17px; fill: currentColor; }
+
+    .email-link {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--gray);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .email-link:hover { color: var(--navy); border-color: var(--navy); }
+
+    .btn {
+      display: inline-block;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      padding: 13px 30px;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      transition: background .15s;
+    }
+
+    .btn:hover { background: var(--red-dark); }
+    .btn.btn-nav { padding: 9px 18px; font-size: 13px; }
+    .btn.btn-outline { background: transparent; border: 2px solid #fff; }
+    .btn.btn-outline:hover { background: #fff; color: var(--navy); }
+    .btn.btn-navy { background: var(--navy); }
+    .btn.btn-navy:hover { background: var(--navy-deep); }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      margin-top: 68px;
+      display: flex;
+      align-items: flex-end;
+      background: url('Visuals/IMG_5305.jpg') center 30% / cover no-repeat var(--navy);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,26,58,0.25) 0%, rgba(0,26,58,0.55) 55%, rgba(0,26,58,0.92) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 32px 72px;
+      color: #fff;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      background: var(--red);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600; font-size: 13px;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 6.5vw, 84px);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: 0.01em;
+      max-width: 800px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span { color: #ff5a5a; }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 560px;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 30px;
+    }
+
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* ---------- STAT STRIP ---------- */
+    .stats {
+      background: var(--navy);
+      color: #fff;
+      border-top: 4px solid var(--red);
+    }
+
+    .stats-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 34px 32px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+
+    .stat-num { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 42px; line-height: 1; }
+    .stat-label { font-size: 12.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 8px; }
+
+    /* ---------- SECTION BASICS ---------- */
+    section { padding: 88px 0; }
+
+    .kicker {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600; font-size: 14px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+
+    .title {
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    /* ---------- MISSION ---------- */
+    #mission .wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    #mission img { width: 100%; border-top: 4px solid var(--red); }
+
+    #mission p { font-size: 16.5px; color: var(--gray); margin-bottom: 14px; }
+    #mission p strong { color: var(--ink); }
+
+    .mission-pledge {
+      margin-top: 22px;
+      background: var(--off);
+      border-left: 4px solid var(--red);
+      padding: 16px 20px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600; font-size: 17px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    /* ---------- STORY ---------- */
+    #story { background: var(--off); }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 44px;
+    }
+
+    .story-card {
+      background: var(--white);
+      border-top: 4px solid var(--red);
+      padding: 30px 26px;
+    }
+
+    .story-year { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 30px; color: var(--red); line-height: 1; margin-bottom: 12px; }
+    .story-card h3 { font-size: 18px; font-weight: 600; letter-spacing: 0.05em; color: var(--navy); margin-bottom: 10px; }
+    .story-card p { font-size: 15px; color: var(--gray); }
+
+    .story-vision {
+      grid-column: 1 / -1;
+      background: var(--white);
+      border-top: 4px solid var(--navy);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: center;
+    }
+
+    .story-vision img { width: 100%; height: auto; }
+    .story-vision .sv-body { padding: 34px 32px; }
+    .story-vision .story-year { color: var(--navy); }
+
+    /* ---------- NEWS ---------- */
+    #news { background: var(--navy); color: #fff; }
+
+    #news .wrap {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    #news .kicker { color: #ff5a5a; }
+    #news .title { color: #fff; }
+    #news p { color: rgba(255,255,255,0.82); font-size: 16.5px; margin-bottom: 14px; }
+
+    .news-video { aspect-ratio: 16/9; background: #000; }
+    .news-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+    .news-quote {
+      border-left: 4px solid var(--red);
+      padding-left: 16px;
+      font-style: italic;
+      font-size: 17px;
+      color: #fff;
+      margin: 20px 0 8px;
+    }
+
+    .news-source { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+
+    /* ---------- VIDEOS / THE MESSAGE ---------- */
+    .message-grid {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 22px;
+      margin-top: 44px;
+      align-items: stretch;
+    }
+
+    .mural-card { position: relative; overflow: hidden; background: var(--navy); }
+    .mural-card img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+    .feature-video video { width: 100%; aspect-ratio: 16/9; background: #000; }
+
+    .video-note {
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .coming-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .coming-card {
+      aspect-ratio: 16/9;
+      background: var(--off);
+      border: 1px dashed #c6ccd3;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: #9aa3ac;
+    }
+
+    /* ---------- GALLERY ---------- */
+    #gallery { background: var(--off); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 44px;
+    }
+
+    .g-card {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .g-card img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform .3s;
+    }
+
+    .g-card:hover img { transform: scale(1.03); }
+
+    .g-cap {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 40px 18px 14px;
+      background: linear-gradient(180deg, rgba(0,26,58,0) 0%, rgba(0,26,58,0.85) 100%);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600; font-size: 15px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+
+    /* ---------- DONATE ---------- */
+    #donate { background: var(--red); color: #fff; }
+
+    #donate .wrap {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    #donate .kicker { color: rgba(255,255,255,0.8); }
+    #donate .title { color: #fff; margin-bottom: 0; }
+    #donate p { color: rgba(255,255,255,0.9); margin-bottom: 22px; }
+
+    .donate-note { font-size: 12.5px; letter-spacing: 0.06em; color: rgba(255,255,255,0.75); margin-top: 14px; }
+
+    #donate .btn { background: #fff; color: var(--red); }
+    #donate .btn:hover { background: var(--navy); color: #fff; }
+
+    /* ---------- FOOTER ---------- */
+    footer { background: var(--navy-deep); color: #fff; padding: 54px 0 40px; }
+
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 28px;
+    }
+
+    .footer-brand { display: flex; align-items: center; gap: 12px; }
+    .footer-brand .fb-text { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .footer-brand .fb-text span { color: #ff5a5a; }
+
+    .footer-socials { display: flex; gap: 18px; list-style: none; }
+
+    .footer-socials a {
+      display: flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      color: #fff;
+      transition: background .15s, border-color .15s;
+    }
+
+    .footer-socials a:hover { background: var(--red); border-color: var(--red); }
+    .footer-socials svg { width: 17px; height: 17px; fill: currentColor; }
+
+    .footer-right { text-align: right; }
+    .footer-right a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; }
+    .footer-right a:hover { color: #fff; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 6px; }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 960px) {
+      .nav-burger { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        gap: 0;
+        padding: 6px 0 12px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.10);
+      }
+
+      header.nav-open .nav-links { display: flex; }
+
+      .nav-links a {
+        display: block;
+        padding: 13px 24px;
+        font-size: 15px;
+        border-bottom: 0;
+      }
+
+      .nav-inner { padding: 0 18px; }
+
+      .hero { min-height: 72vh; }
+      .hero-content { padding: 90px 20px 52px; }
+
+      .wrap { padding: 0 20px; }
+      section { padding: 64px 0; }
+
+      .stats-inner { grid-template-columns: repeat(2, 1fr); padding: 28px 20px; }
+
+      #mission .wrap { grid-template-columns: 1fr; gap: 36px; }
+      .story-grid { grid-template-columns: 1fr; }
+      .story-vision { grid-template-columns: 1fr; }
+      #news .wrap { grid-template-columns: 1fr; gap: 32px; }
+      .message-grid { grid-template-columns: 1fr; }
+      .mural-card img { height: auto; }
+      .coming-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .g-card img { height: 240px; }
+      #donate .wrap { grid-template-columns: 1fr; gap: 28px; }
+
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-right { text-align: left; }
+    }
+
+    @media (max-width: 560px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+
+      .nav-inner { height: 60px; gap: 12px; }
+      .brand-text .b2 { display: none; }
+      .brand-mark { width: 40px; height: 40px; }
+      .email-link { display: none; }
+
+      .hero { min-height: 62vh; }
+      .hero-content { padding: 70px 20px 40px; }
+      .hero h1 { font-size: clamp(36px, 10vw, 48px); }
+      .hero p { font-size: 16px; }
+      .hero-ctas .btn { padding: 12px 22px; font-size: 13px; }
+
+      .stat-num { font-size: 32px; }
+      .stat-label { font-size: 11px; }
+
+      section { padding: 52px 0; }
+      .title { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <div class="nav-inner">
+      <a href="#home" class="brand">
+        <img src="Visuals/logo.png" alt="B.I.B Believe In Better logo" class="brand-mark" />
+        <div class="brand-text">
+          <div class="b1">B.I.B</div>
+          <div class="b2">Believe In Better</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#news">In the News</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="shop.html">Gear</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://www.instagram.com/bib_league" target="_blank" rel="noopener" class="ig-btn" aria-label="BIB on Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <span>Follow Us</span>
+        </a>
+        <a href="mailto:zaadev1@aol.com" class="email-link">Email us</a>
+        <button class="nav-burger" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero" id="home">
+    <div class="hero-content">
+      <span class="hero-kicker">Belleview, Florida &middot; Est. 2018</span>
+      <h1>More than basketball.<br/>It's a <span>community.</span></h1>
+      <p>Fellowship. Free youth training. And one rule above all: nonviolence.</p>
+      <div class="hero-ctas">
+        <a href="#donate" class="btn">Support the League</a>
+        <a href="#news" class="btn btn-outline">Watch Our Story</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAT STRIP -->
+  <div class="stats">
+    <div class="stats-inner">
+      <div>
+        <p class="stat-num">2018</p>
+        <p class="stat-label">Serving Belleview since</p>
+      </div>
+      <div>
+        <p class="stat-num">10</p>
+        <p class="stat-label">Teams and growing</p>
+      </div>
+      <div>
+        <p class="stat-num">200+</p>
+        <p class="stat-label">Players in the league</p>
+      </div>
+      <div>
+        <p class="stat-num">6-16</p>
+        <p class="stat-label">Free youth training ages</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSION -->
+  <section id="mission">
+    <div class="wrap">
+      <img src="Visuals/IMG_7655.jpg" alt="B.I.B league trophies and Belleviews International Ballers logo" />
+      <div>
+        <p class="kicker">About Us</p>
+        <h2 class="title">More than basketball.</h2>
+        <p>B.I.B is a <strong>community</strong>. A safe space in Belleview where people come together across cultures, share meals on game days, and kids ages 6 to 16 <strong>train for free</strong>.</p>
+        <div class="mission-pledge">At every game, we promote nonviolence.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story">
+    <div class="wrap">
+      <p class="kicker">Our Story</p>
+      <h2 class="title">From empty courts to a full league.</h2>
+      <div class="story-grid">
+        <div class="story-card">
+          <p class="story-year">2011</p>
+          <h3>The Coaching Years</h3>
+          <p>Head coach in New York. Four championships and Coach of the Year.</p>
+        </div>
+        <div class="story-card">
+          <p class="story-year">2018</p>
+          <h3>The First Tournament</h3>
+          <p>Empty courts in Florida. So we started one: 4 teams, some shirts, one big trophy.</p>
+        </div>
+        <div class="story-card">
+          <p class="story-year">Today</p>
+          <h3>A Full League</h3>
+          <p>10 teams, 200+ players, community meals, and free youth training.</p>
+        </div>
+        <div class="story-vision">
+          <img src="Visuals/IMG_6437%20future%20vision.jpg" alt="B.I.B growth from one hoop in 2018 to the goal of an indoor facility by 2030" />
+          <div class="sv-body">
+            <p class="story-year">2030</p>
+            <h3>The Vision</h3>
+            <p>From one hoop in 2018 to our own indoor facility. Believe In Better.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news">
+    <div class="wrap">
+      <div class="news-video">
+        <iframe src="https://www.youtube.com/embed/CeazC5U4NVg" title="News 6: Adult basketball league gets results with community outreach" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div>
+        <p class="kicker">In the News</p>
+        <h2 class="title">As seen on News 6.</h2>
+        <p>News 6 came to Belleview to see a league that's helped slow the violence in the community.</p>
+        <p class="news-quote">"Adult basketball league curbs violence, fosters community in Belleview"</p>
+        <p class="news-source">WKMG News 6 / ClickOrlando</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="videos">
+    <div class="wrap">
+      <p class="kicker">Hear It From Us</p>
+      <h2 class="title">The Message</h2>
+      <div class="message-grid">
+        <div class="feature-video">
+          <video controls preload="metadata" poster="Visuals/bib-highlight-poster.jpg">
+            <source src="Visuals/bib-highlight.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="mural-card">
+          <img src="Visuals/IMG_3805.jpg" alt="Lernard in front of the What You Think You Become mural" />
+          <div class="g-cap">What You Think, You Become</div>
+        </div>
+      </div>
+      <div class="coming-grid">
+        <div class="coming-card">More videos coming soon</div>
+        <div class="coming-card">More videos coming soon</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="wrap">
+      <p class="kicker">The League</p>
+      <h2 class="title">In Action</h2>
+      <div class="gallery-grid">
+        <div class="g-card"><img src="Visuals/IMG_5305.jpg" alt="Championship team with trophies" /><div class="g-cap">Champions Night</div></div>
+        <div class="g-card"><img src="Visuals/IMG_5803.jpg" alt="Apply The Pressure, first team to 3peat in the BIB League" /><div class="g-cap">The First 3peat &middot; 2022-2024</div></div>
+        <div class="g-card"><img src="Visuals/IMG_7653.jpg" alt="League growth from 2018 to 2021" /><div class="g-cap">Growing Since 2018</div></div>
+        <div class="g-card"><img src="Visuals/IMG_8179.jpg" alt="Players across the seasons" /><div class="g-cap">Growth</div></div>
+        <div class="g-card"><img src="Visuals/IMG_8185.jpg" alt="Trophy winners across the league" /><div class="g-cap">Trophy Winners</div></div>
+        <div class="g-card"><img src="Visuals/IMG_5404.jpg" alt="Custom jerseys and prizes" /><div class="g-cap">Looking Good, Having Fun</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <section id="donate">
+    <div class="wrap">
+      <div>
+        <p class="kicker">Support the Program</p>
+        <h2 class="title">Help us keep the community on the court.</h2>
+      </div>
+      <div>
+        <p>Every dollar goes back to the league: uniforms, trophies, new hoops, meals, and free youth training.</p>
+        <a href="#" class="btn">Donate Now</a>
+        <p class="donate-note">[Donation link (PayPal / Venmo / Cash App / GoFundMe) drops in here]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="Visuals/logo.png" alt="B.I.B Believe In Better logo" class="brand-mark" />
+        <div class="fb-text">B.I.B <span>&middot;</span> Believe In Better</div>
+      </div>
+      <ul class="footer-socials">
+        <li><a href="https://www.instagram.com/bib_league" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></li>
+        <li><a href="https://www.facebook.com/bib.ballers" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></li>
+        <li><a href="https://www.tiktok.com/@bib20189" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></li>
+        <li><a href="https://www.youtube.com/@Lernard-j3y8w" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></li>
+      </ul>
+      <div class="footer-right">
+        <a href="mailto:zaadev1@aol.com">zaadev1@aol.com</a>
+        <p class="footer-copy">&copy; 2026 B.I.B &middot; Belleview, Florida</p>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  (function () {
+    var header = document.querySelector('header');
+    var burger = document.querySelector('.nav-burger');
+    if (!header || !burger) return;
+    burger.addEventListener('click', function () {
+      var open = header.classList.toggle('nav-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    document.querySelectorAll('.nav-links a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        header.classList.remove('nav-open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
+</body>
+</html>
