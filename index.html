@@ -359,24 +359,6 @@
       color: var(--gray);
     }
 
-    .coming-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-      margin-top: 26px;
-    }
-
-    .coming-card {
-      aspect-ratio: 16/9;
-      background: var(--off);
-      border: 1px dashed #c6ccd3;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Oswald', sans-serif;
-      font-size: 13px; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: #9aa3ac;
-    }
-
     /* ---------- GALLERY ---------- */
     #gallery { background: var(--off); }
 
@@ -430,6 +412,26 @@
 
     .donate-note { font-size: 12.5px; letter-spacing: 0.06em; color: rgba(255,255,255,0.75); margin-top: 14px; }
 
+    .donate-badge {
+      display: inline-block;
+      margin-top: 20px;
+      border: 2px solid rgba(255,255,255,0.55);
+      padding: 8px 16px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600; font-size: 12.5px;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #fff;
+    }
+
+    .donate-alt { margin-top: 16px; margin-bottom: 0; font-size: 14.5px; }
+
+    .zelle-btn {
+      background: none; border: 0; padding: 0;
+      color: #fff; font: inherit; font-weight: 700;
+      text-decoration: underline; text-underline-offset: 3px;
+      cursor: pointer;
+    }
+
     #donate .btn { background: #fff; color: var(--red); }
     #donate .btn:hover { background: var(--navy); color: #fff; }
 
@@ -464,6 +466,84 @@
     .footer-right a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; }
     .footer-right a:hover { color: #fff; }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 6px; }
+
+    /* ---------- COSIGN ---------- */
+    #cosign .wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    #cosign p { font-size: 16.5px; color: var(--gray); margin-bottom: 14px; }
+    #cosign p strong { color: var(--ink); }
+
+    .cosign-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cosign-photos figure { margin: 0; }
+
+    .cosign-photos img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      object-position: center top;
+      border-top: 4px solid var(--red);
+    }
+
+    .cosign-cap {
+      margin-top: 10px;
+      font-size: 11.5px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gray);
+      line-height: 1.55;
+    }
+
+    /* ---------- NEWS PHOTO ---------- */
+    #news .wrap-block { display: block; }
+
+    .news-photo { margin: 48px auto 0; max-width: 520px; }
+    .news-photo img { width: 100%; border-top: 4px solid var(--red); }
+
+    .news-photo figcaption {
+      margin-top: 12px;
+      font-size: 11.5px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+    }
+
+    /* ---------- SECOND VIDEO ---------- */
+    .second-video { margin-top: 22px; }
+    .second-video video { width: 100%; aspect-ratio: 16/9; background: #000; }
+
+    .video-cap {
+      margin-top: 12px;
+      font-size: 11.5px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    /* ---------- LIGHTBOX ---------- */
+    .g-card img { cursor: zoom-in; }
+
+    .lightbox {
+      position: fixed; inset: 0;
+      z-index: 200;
+      background: rgba(0,10,25,0.94);
+      display: none;
+      align-items: center; justify-content: center;
+      padding: 28px;
+    }
+
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 92vw; max-height: 86vh; width: auto; height: auto; }
+
+    .lightbox-close {
+      position: absolute; top: 14px; right: 20px;
+      background: none; border: 0;
+      color: #fff; font-family: 'Oswald', sans-serif;
+      font-size: 36px; line-height: 1;
+      cursor: pointer;
+    }
 
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 960px) {
@@ -505,10 +585,11 @@
       #mission .wrap { grid-template-columns: 1fr; gap: 36px; }
       .story-grid { grid-template-columns: 1fr; }
       .story-vision { grid-template-columns: 1fr; }
+      #cosign .wrap { grid-template-columns: 1fr; gap: 36px; }
+      .cosign-photos img { height: 340px; }
       #news .wrap { grid-template-columns: 1fr; gap: 32px; }
       .message-grid { grid-template-columns: 1fr; }
       .mural-card img { height: auto; }
-      .coming-grid { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .g-card img { height: 240px; }
       #donate .wrap { grid-template-columns: 1fr; gap: 28px; }
@@ -518,7 +599,12 @@
     }
 
     @media (max-width: 560px) {
-      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-grid { gap: 12px; }
+      .g-card img { height: 180px; }
+      .g-cap { font-size: 12px; padding: 30px 12px 10px; }
+      .cosign-photos { gap: 12px; }
+      .cosign-photos img { height: 250px; }
+      .cosign-cap { font-size: 10.5px; letter-spacing: 0.08em; }
 
       .nav-inner { height: 60px; gap: 12px; }
       .brand-text .b2 { display: none; }
@@ -564,7 +650,7 @@
           <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           <span>Follow Us</span>
         </a>
-        <a href="mailto:zaadev1@aol.com" class="email-link">Email us</a>
+        <a href="mailto:biblea2018@gmail.com" class="email-link">Email us</a>
         <button class="nav-burger" type="button" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -654,6 +740,28 @@
     </div>
   </section>
 
+  <!-- COSIGN -->
+  <section id="cosign">
+    <div class="wrap">
+      <div>
+        <p class="kicker">Who We Run With</p>
+        <h2 class="title">Real basketball people show up for B.I.B.</h2>
+        <p>A community league only grows when people with something to teach are willing to stand in it. We've been in the room with <strong>Rafer Alston</strong>, the streetball legend known as <strong>Skip To My Lou</strong>, who played 11 seasons in the NBA and started at point guard for the Orlando Magic in the 2009 NBA Finals.</p>
+        <p>We've also built alongside local founders and small businesses who put their name behind our trophies, our jerseys, and our game-day meals.</p>
+      </div>
+      <div class="cosign-photos">
+        <figure>
+          <img src="Visuals/alston-skip.jpg" alt="Lernard with NBA guard and streetball legend Rafer Alston at the 2023 Elite Guard Camp" />
+          <figcaption class="cosign-cap">With Rafer Alston &middot; 2023 Elite Guard Camp</figcaption>
+        </figure>
+        <figure>
+          <img src="Visuals/mynd-rite.jpg" alt="B.I.B and the founder of MYND-RITE holding league trophies" />
+          <figcaption class="cosign-cap">With the founder of MYND-RITE</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- NEWS -->
   <section id="news">
     <div class="wrap">
@@ -667,6 +775,12 @@
         <p class="news-quote">"Adult basketball league curbs violence, fosters community in Belleview"</p>
         <p class="news-source">WKMG News 6 / ClickOrlando</p>
       </div>
+    </div>
+    <div class="wrap wrap-block">
+      <figure class="news-photo">
+        <img src="Visuals/news6-crew.jpg" alt="News 6 reporter on the court with B.I.B players and families, one player holding his baby" />
+        <figcaption>News 6 on the court with our players and their families</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -687,9 +801,12 @@
           <div class="g-cap">What You Think, You Become</div>
         </div>
       </div>
-      <div class="coming-grid">
-        <div class="coming-card">More videos coming soon</div>
-        <div class="coming-card">More videos coming soon</div>
+      <div class="second-video">
+        <video controls preload="metadata" poster="Visuals/bib-3pt-contest-poster.jpg">
+          <source src="Visuals/bib-3pt-contest.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <p class="video-cap">Friendly 3-point contest &middot; St. Therese courts</p>
       </div>
     </div>
   </section>
@@ -706,6 +823,12 @@
         <div class="g-card"><img src="Visuals/IMG_8179.jpg" alt="Players across the seasons" /><div class="g-cap">Growth</div></div>
         <div class="g-card"><img src="Visuals/IMG_8185.jpg" alt="Trophy winners across the league" /><div class="g-cap">Trophy Winners</div></div>
         <div class="g-card"><img src="Visuals/IMG_5404.jpg" alt="Custom jerseys and prizes" /><div class="g-cap">Looking Good, Having Fun</div></div>
+        <div class="g-card"><img src="Visuals/game-wide.jpg" alt="Full court game day at the St. Therese courts with families watching" /><div class="g-cap">Game Day Under The Oak</div></div>
+        <div class="g-card"><img src="Visuals/game-block.jpg" alt="Two players going up for a contested block at the rim" /><div class="g-cap">Guard Who?</div></div>
+        <div class="g-card"><img src="Visuals/game-drive.jpg" alt="Player driving the lane during a league game" /><div class="g-cap">Nobody Takes A Play Off</div></div>
+        <div class="g-card"><img src="Visuals/game-35.jpg" alt="St. Therese player number 35 setting up on the court" /><div class="g-cap">St. Therese &middot; 35</div></div>
+        <div class="g-card"><img src="Visuals/game-fixit.jpg" alt="Fix It player number 1 bringing the ball up the court" /><div class="g-cap">Fix It &middot; 1</div></div>
+        <div class="g-card"><img src="Visuals/bib-ball.jpg" alt="Signed B.I.B League game ball" /><div class="g-cap">The League Ball</div></div>
       </div>
     </div>
   </section>
@@ -716,11 +839,13 @@
       <div>
         <p class="kicker">Support the Program</p>
         <h2 class="title">Help us keep the community on the court.</h2>
+        <p class="donate-badge">A community based 501(c)(3) nonprofit</p>
       </div>
       <div>
         <p>Every dollar goes back to the league: uniforms, trophies, new hoops, community meals on game days, and free training for kids ages 6 to 16.</p>
-        <a href="#" class="btn">Donate Now</a>
-        <p class="donate-note">[Donation link (PayPal / Venmo / Cash App / GoFundMe) drops in here]</p>
+        <a href="https://cash.app/$BIB2026LE" target="_blank" rel="noopener" class="btn">Donate With Cash App</a>
+        <p class="donate-alt">Prefer Zelle? <button type="button" class="zelle-btn" data-zelle>Show the QR code</button></p>
+        <p class="donate-note">Cash App opens in the app on your phone, or in your browser on a computer.</p>
       </div>
     </div>
   </section>
@@ -739,13 +864,59 @@
         <li><a href="https://www.youtube.com/@Lernard-j3y8w" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></li>
       </ul>
       <div class="footer-right">
-        <a href="mailto:zaadev1@aol.com">zaadev1@aol.com</a>
-        <p class="footer-copy">&copy; 2026 B.I.B &middot; Belleview, Florida</p>
+        <a href="mailto:biblea2018@gmail.com">biblea2018@gmail.com</a>
+        <p class="footer-copy">&copy; 2026 B.I.B &middot; Belleview, Florida &middot; A community based 501(c)(3) nonprofit</p>
       </div>
     </div>
   </footer>
 
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image">
+    <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="" />
+  </div>
+
 <script>
+  (function () {
+    var lb = document.getElementById('lightbox');
+    if (!lb) return;
+    var lbImg = lb.querySelector('img');
+
+    function openLb(src, alt) {
+      lbImg.setAttribute('src', src);
+      lbImg.setAttribute('alt', alt || '');
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLb() {
+      lb.classList.remove('open');
+      lbImg.setAttribute('src', '');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.g-card img').forEach(function (img) {
+      img.addEventListener('click', function () {
+        openLb(img.currentSrc || img.getAttribute('src'), img.getAttribute('alt'));
+      });
+    });
+
+    var zelle = document.querySelector('[data-zelle]');
+    if (zelle) {
+      zelle.addEventListener('click', function () {
+        openLb('Visuals/zelle.png', 'Scan this QR code in your banking app to send with Zelle');
+      });
+    }
+
+    lb.addEventListener('click', function (e) {
+      if (e.target !== lbImg) closeLb();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' || e.key === 'Esc') closeLb();
+    });
+  })();
+
   (function () {
     var header = document.querySelector('header');
     var burger = document.querySelector('.nav-burger');
