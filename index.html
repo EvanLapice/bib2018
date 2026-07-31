@@ -298,6 +298,34 @@
     .story-card h3 { font-size: 18px; font-weight: 600; letter-spacing: 0.05em; color: var(--navy); margin-bottom: 10px; }
     .story-card p { font-size: 15px; color: var(--gray); }
 
+    .coach-shots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .coach-shots img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      object-position: center;
+      border-top: 3px solid var(--red);
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .coach-shots img:hover { opacity: 0.85; }
+
+    .coach-shots-cap {
+      margin-top: 9px;
+      font-size: 11px !important;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
     .story-vision {
       grid-column: 1 / -1;
       background: var(--white);
@@ -483,7 +511,7 @@
 
     .cosign-photos img {
       width: 100%;
-      height: 430px;
+      height: 275px;
       object-fit: cover;
       object-position: center top;
       border-top: 4px solid var(--red);
@@ -586,7 +614,7 @@
       .story-grid { grid-template-columns: 1fr; }
       .story-vision { grid-template-columns: 1fr; }
       #cosign .wrap { grid-template-columns: 1fr; gap: 36px; }
-      .cosign-photos img { height: 340px; }
+      .cosign-photos img { height: 250px; }
       #news .wrap { grid-template-columns: 1fr; gap: 32px; }
       .message-grid { grid-template-columns: 1fr; }
       .mural-card img { height: auto; }
@@ -603,7 +631,7 @@
       .g-card img { height: 180px; }
       .g-cap { font-size: 12px; padding: 30px 12px 10px; }
       .cosign-photos { gap: 12px; }
-      .cosign-photos img { height: 250px; }
+      .cosign-photos img { height: 175px; }
       .cosign-cap { font-size: 10.5px; letter-spacing: 0.08em; }
 
       .nav-inner { height: 60px; gap: 12px; }
@@ -683,7 +711,7 @@
         <p class="stat-label">Teams and growing</p>
       </div>
       <div>
-        <p class="stat-num">200+</p>
+        <p class="stat-num">100+</p>
         <p class="stat-label">Players in the league</p>
       </div>
       <div>
@@ -717,6 +745,11 @@
           <p class="story-year">2011</p>
           <h3>The Coaching Years</h3>
           <p>Head Coach at Innovation Charter High School in New York. Lost the first game by 44 points. Finished with four 1st-place championships, two 2nd-place finishes, and Coach of the Year.</p>
+          <div class="coach-shots zoomable">
+            <img src="Visuals/coaching-nysaa.jpg" alt="NYSAA Varsity High School Champions 2015-2016 banner, championship trophies, winning scoreboards, and Innovation Warriors team jackets" />
+            <img src="Visuals/coaching-innovation.jpg" alt="Innovation Warriors championship team photos, CSAANYC champions banner, and team gear" />
+          </div>
+          <p class="coach-shots-cap">Tap a photo to enlarge</p>
         </div>
         <div class="story-card">
           <p class="story-year">2018</p>
@@ -747,6 +780,7 @@
         <p class="kicker">Who We Run With</p>
         <h2 class="title">Real basketball people show up for B.I.B.</h2>
         <p>A community league only grows when people with something to teach are willing to stand in it. We've been in the room with <strong>Rafer Alston</strong>, the streetball legend known as <strong>Skip To My Lou</strong>, who played 11 seasons in the NBA and started at point guard for the Orlando Magic in the 2009 NBA Finals.</p>
+        <p>We've stood with <strong>Coach Shake</strong>, founder of <strong>Who's House Ballers Charity Inc.</strong>, who has spent years running community basketball and charity work off the court, including breast cancer awareness events.</p>
         <p>We've also built alongside local founders and small businesses who put their name behind our trophies, our jerseys, and our game-day meals.</p>
       </div>
       <div class="cosign-photos">
@@ -757,6 +791,14 @@
         <figure>
           <img src="Visuals/mynd-rite.jpg" alt="B.I.B and the founder of MYND-RITE holding league trophies" />
           <figcaption class="cosign-cap">With the founder of MYND-RITE</figcaption>
+        </figure>
+        <figure>
+          <img src="Visuals/coach-shake-gym.jpg" alt="With Coach Shake in the gym under the Who's House Ballers banner" />
+          <figcaption class="cosign-cap">With Coach Shake &middot; Who's House Ballers</figcaption>
+        </figure>
+        <figure>
+          <img src="Visuals/coach-shake-pink.jpg" alt="With Coach Shake at a Who's House Ballers breast cancer awareness event" />
+          <figcaption class="cosign-cap">Who's House Ballers Charity Inc. &middot; Awareness Event</figcaption>
         </figure>
       </div>
     </div>
@@ -842,7 +884,7 @@
         <p class="donate-badge">A community based 501(c)(3) nonprofit</p>
       </div>
       <div>
-        <p>Every dollar goes back to the league: uniforms, trophies, new hoops, community meals on game days, and free training for kids ages 6 to 16.</p>
+        <p>Every dollar goes back to the league: uniforms, equipment, trophies, new hoops, community meals on game days, and free training for kids ages 6 to 16.</p>
         <a href="https://cash.app/$BIB2026LE" target="_blank" rel="noopener" class="btn">Donate With Cash App</a>
         <p class="donate-alt">Prefer Zelle? <button type="button" class="zelle-btn" data-zelle>Show the QR code</button></p>
         <p class="donate-note">Cash App opens in the app on your phone, or in your browser on a computer.</p>
@@ -895,7 +937,7 @@
       document.body.style.overflow = '';
     }
 
-    document.querySelectorAll('.g-card img').forEach(function (img) {
+    document.querySelectorAll('.g-card img, .zoomable img').forEach(function (img) {
       img.addEventListener('click', function () {
         openLb(img.currentSrc || img.getAttribute('src'), img.getAttribute('alt'));
       });
