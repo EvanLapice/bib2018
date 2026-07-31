@@ -515,7 +515,11 @@
       object-fit: cover;
       object-position: center top;
       border-top: 4px solid var(--red);
+      cursor: pointer;
+      transition: opacity 0.2s ease;
     }
+
+    .cosign-photos img:hover { opacity: 0.85; }
 
     .cosign-cap {
       margin-top: 10px;
@@ -523,6 +527,16 @@
       letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--gray);
       line-height: 1.55;
+    }
+
+    .cosign-hint {
+      grid-column: 1 / -1;
+      margin-top: 4px;
+      font-size: 11px !important;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
     }
 
     /* ---------- NEWS PHOTO ---------- */
@@ -783,7 +797,7 @@
         <p>We've stood with <strong>Coach Shake</strong>, founder of <strong>Who's House Ballers Charity Inc.</strong>, who has spent years running community basketball and charity work off the court, including breast cancer awareness events.</p>
         <p>We've also built alongside local founders and small businesses who put their name behind our trophies, our jerseys, and our game-day meals.</p>
       </div>
-      <div class="cosign-photos">
+      <div class="cosign-photos zoomable">
         <figure>
           <img src="Visuals/alston-skip.jpg" alt="Lernard with NBA guard and streetball legend Rafer Alston at the 2023 Elite Guard Camp" />
           <figcaption class="cosign-cap">With Rafer Alston &middot; 2023 Elite Guard Camp</figcaption>
@@ -800,6 +814,7 @@
           <img src="Visuals/coach-shake-pink.jpg" alt="With Coach Shake at a Who's House Ballers breast cancer awareness event" />
           <figcaption class="cosign-cap">Who's House Ballers Charity Inc. &middot; Awareness Event</figcaption>
         </figure>
+        <p class="cosign-hint">Tap a photo to enlarge</p>
       </div>
     </div>
   </section>
